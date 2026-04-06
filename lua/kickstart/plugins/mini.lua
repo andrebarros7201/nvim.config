@@ -1,6 +1,6 @@
 return {
 	{ -- Collection of various small independent plugins/modules
-		"echasnovski/mini.nvim",
+		"nvim-mini/mini.nvim",
 		config = function()
 			-- Colorscheme
 			require("mini.base16").setup({
@@ -25,7 +25,7 @@ return {
 				use_cterm = true,
 				plugins = {
 					default = true,
-					["echasnovski/mini.nvim"] = true,
+					["nvim-mini/mini.nvim"] = true,
 				},
 			})
 
