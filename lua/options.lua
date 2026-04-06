@@ -39,9 +39,8 @@ o.smarttab = true -- Use shiftwidth when pressing Tab at line start
 o.breakindent = true -- Indent wrapped lines visually
 
 -- Text formatting and wrapping
-o.wrap = false -- Don't wrap long lines
--- o.wrap = true              -- (Optional) Enable for prose or markdown
--- o.linebreak = true         -- Wrap at word boundaries if wrap = true
+o.wrap = true
+o.linebreak = true -- Wrap at word boundaries if wrap = true
 
 -- Window and splits
 o.splitright = true -- Vertical splits open to the right
