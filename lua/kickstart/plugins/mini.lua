@@ -8,7 +8,7 @@ return {
           base00 = '#100F0F',
           base01 = '#1C1B1A',
           base02 = '#282726',
-          base03 = '#343331',
+          base03 = '#4A4845',
           base04 = '#403E3C',
           base05 = '#878580',
           base06 = '#CECDC3',
