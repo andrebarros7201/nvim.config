@@ -5,22 +5,22 @@ return {
       -- Colorscheme
       require('mini.base16').setup {
         palette = {
-          base00 = '#0d0f0e', -- background
-          base01 = '#191c1b', -- lighter bg
-          base02 = '#282c2a', -- selection
-          base03 = '#404744', -- comments
-          base04 = '#686f6b', -- dark fg
-          base05 = '#c4ccc7', -- main text
-          base06 = '#dde4df', -- light fg
-          base07 = '#edf2ee', -- light bg
-          base08 = '#b03535', -- red (errors)
-          base09 = '#a05028', -- orange (keywords)
-          base0A = '#8a7820', -- ochre (constants)
-          base0B = '#3a7835', -- forest (strings)
-          base0C = '#1a7878', -- slate teal (specials)
-          base0D = '#2a5aa0', -- deep blue (functions)
-          base0E = '#784080', -- plum (types)
-          base0F = '#6e4025', -- umber (misc)
+          base00 = '#100F0F',
+          base01 = '#1C1B1A',
+          base02 = '#282726',
+          base03 = '#343331',
+          base04 = '#403E3C',
+          base05 = '#878580',
+          base06 = '#CECDC3',
+          base07 = '#FFFCF0',
+          base08 = '#AF3029', -- red
+          base09 = '#BC5215', -- orange
+          base0A = '#AD8301', -- yellow
+          base0B = '#66800B', -- green
+          base0C = '#24837B', -- cyan
+          base0D = '#205EA6', -- blue
+          base0E = '#5E409D', -- purple
+          base0F = '#924D25', -- brown
         },
         use_cterm = true,
         plugins = {
@@ -49,13 +49,13 @@ return {
       -- set use_icons to true if you have a Nerd Font
       statusline.setup {
         use_icons = vim.g.have_nerd_font,
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal', { fg = '#edf2ee', bg = '#3a7835', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeInsert', { fg = '#edf2ee', bg = '#1a7878', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeVisual', { fg = '#edf2ee', bg = '#a05028', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeReplace', { fg = '#edf2ee', bg = '#b03535', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeCommand', { fg = '#edf2ee', bg = '#8a7820', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineFilename', { fg = '#c4ccc7', bg = '#191c1b' }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineDevinfo', { fg = '#686f6b', bg = '#191c1b' }),
+        vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal', { fg = '#FFFCF0', bg = '#66800B', bold = true }),
+        vim.api.nvim_set_hl(0, 'MiniStatuslineModeInsert', { fg = '#FFFCF0', bg = '#24837B', bold = true }),
+        vim.api.nvim_set_hl(0, 'MiniStatuslineModeVisual', { fg = '#FFFCF0', bg = '#BC5215', bold = true }),
+        vim.api.nvim_set_hl(0, 'MiniStatuslineModeReplace', { fg = '#FFFCF0', bg = '#AF3029', bold = true }),
+        vim.api.nvim_set_hl(0, 'MiniStatuslineModeCommand', { fg = '#FFFCF0', bg = '#AD8301', bold = true }),
+        vim.api.nvim_set_hl(0, 'MiniStatuslineFilename', { fg = '#CECDC3', bg = '#1C1B1A' }),
+        vim.api.nvim_set_hl(0, 'MiniStatuslineDevinfo', { fg = '#878580', bg = '#1C1B1A' }),
       }
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
