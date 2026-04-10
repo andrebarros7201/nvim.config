@@ -11,7 +11,8 @@ o.undofile = true -- Save undo history between sessions
 o.scrolloff = 10 -- Keep 10 lines visible above/below cursor
 o.updatetime = 250 -- Faster updates for plugins
 o.timeoutlen = 300 -- Shorter timeout for mapped sequences
-
+o.fileformat = 'unix' -- File format -> lf
+o.ff = 'unix'
 -- Searching
 o.ignorecase = true -- Ignore case in search...
 o.smartcase = true -- ...unless uppercase is used
