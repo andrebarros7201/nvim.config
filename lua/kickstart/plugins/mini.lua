@@ -71,8 +71,9 @@ return {
       }
       -- Auto pairs
       require('mini.pairs').setup()
+
       -- Colorizer
-      require('mini.hipatterns').setup {
+      require('Diagnostics').setup {
         highlighters = {
           -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
           fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
@@ -84,10 +85,16 @@ return {
           hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
         },
       }
-      -- Needed for diagnostics
+      -- Diagnostics
       require('mini.pick').setup()
       require('mini.extra').setup()
-      vim.keymap.set('n', '<leader>d', function() require('mini.extra').pickers.diagnostic() end, { desc = 'Diagnostics picker' })
+      vim.keymap.set('n', '<leader>da', function() require('mini.extra').pickers.diagnostic() end, { desc = 'Diagnostics' })
+      vim.keymap.set(
+        'Diagnostics',
+        '<leader>d',
+        function() require('mini.extra').pickers.diagnostic { scope = 'current' } end,
+        { desc = 'Current buffer diagnostics' }
+      )
     end,
   },
 }
