@@ -73,7 +73,7 @@ return {
       require('mini.pairs').setup()
 
       -- Colorizer
-      require('Diagnostics').setup {
+      require('mini.hipatterns').setup {
         highlighters = {
           -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
           fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
@@ -89,12 +89,7 @@ return {
       require('mini.pick').setup()
       require('mini.extra').setup()
       vim.keymap.set('n', '<leader>da', function() require('mini.extra').pickers.diagnostic() end, { desc = 'Diagnostics' })
-      vim.keymap.set(
-        'Diagnostics',
-        '<leader>d',
-        function() require('mini.extra').pickers.diagnostic { scope = 'current' } end,
-        { desc = 'Current buffer diagnostics' }
-      )
+      vim.keymap.set('n', '<leader>d', function() require('mini.extra').pickers.diagnostic { scope = 'current' } end, { desc = 'Current buffer diagnostics' })
     end,
   },
 }
