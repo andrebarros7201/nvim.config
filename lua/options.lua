@@ -29,7 +29,7 @@ o.showmode = false -- Don’t show mode (plugin handles that)
 o.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50' -- Mode-specific cursors
 vim.g.have_nerd_font = true -- Enable nerd font
 opt.cursorline = true -- Highlight current line
-opt.colorcolumn = '80' -- Add vertical line at 80 char -- Add vertical line at 80 char
+opt.colorcolumn = '100' -- Add vertical line at 80 char -- Add vertical line at 80 char
 
 -- Text and indentation -- Add vertical line at 80 char
 opt.tabstop = 4 -- 1 tab = 4 spaces (for display)
