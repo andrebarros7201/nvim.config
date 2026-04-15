@@ -34,7 +34,7 @@ return {
       -- Extend LSP capabilities so completion (blink.cmp) works fully
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-      -- uns whenever an LSP attaches to a buffer
+      -- Runs whenever an LSP attaches to a buffer
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
@@ -120,6 +120,25 @@ return {
 
         -- C / C++
         clangd = {},
+
+        -- CSS
+        cssls = {},
+
+        -- TailwindCSS
+        tailwindcss = {
+          filetypes = {
+            'html',
+            'css',
+            'scss',
+            'javascript',
+            'javascriptreact',
+            'typescript',
+            'typescriptreact',
+          },
+        },
+
+        -- HTML
+        html = {},
       }
 
       -- Ensure all servers are installed via Mason
