@@ -53,4 +53,17 @@ o.splitbelow = true -- Horizontal splits open below
 o.list = false -- Show special characters (whitespace, tabs)
 opt.listchars = { tab = '» ', trail = '.', nbsp = '␣' }
 o.inccommand = 'split' -- Live preview of substitutions (:%s)
-o.lazyredraw = true -- Improve performance on macros and large output
+
+vim.diagnostic.config {
+  virtual_text = {
+    prefix = '',
+    spacing = 4,
+    severity = {
+      min = vim.diagnostic.severity.HINT,
+    },
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+}
