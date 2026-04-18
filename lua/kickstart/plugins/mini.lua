@@ -72,6 +72,14 @@ return {
       -- Auto pairs
       require('mini.pairs').setup()
 
+      -- Inline diff view
+      require('mini.diff').setup()
+      vim.keymap.set('n', '<leader>dd', function() require('mini.diff').toggle_overlay() end, { desc = 'Toggle diff overlay' })
+
+      -- Comment/uncomment
+      require('mini.comment').setup()
+      vim.keymap.set({ 'n', 'v' }, '<leader>cc', 'gcc', { remap = true, desc = 'Toggle comment' })
+
       -- Colorizer
       require('mini.hipatterns').setup {
         highlighters = {
