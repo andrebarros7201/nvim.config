@@ -50,9 +50,7 @@ return {
       vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = 'Search Symbols' })
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Find by Grep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search Diagnostics' })
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
       vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Find Select Telescope' })
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Find by Grep' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
 
       vim.keymap.set(
