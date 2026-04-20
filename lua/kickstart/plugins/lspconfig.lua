@@ -155,20 +155,6 @@ return {
         vim.lsp.enable(name)
       end
 
-      -- Formatting setup (Conform)
-      require('conform').setup {
-        formatters_by_ft = {
-          lua = { 'stylua' },
-          javascript = { 'prettier' },
-          typescript = { 'prettier' },
-          javascriptreact = { 'prettier' },
-          typescriptreact = { 'prettier' },
-          scss = { 'prettier' },
-          css = { 'prettier' },
-          json = { 'prettier' },
-        },
-      }
-
       -- Autoformat on save
       vim.api.nvim_create_autocmd('BufWritePre', {
         callback = function(args) require('conform').format { bufnr = args.buf } end,
