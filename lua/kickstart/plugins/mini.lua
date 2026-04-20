@@ -82,7 +82,7 @@ return {
 
       -- Comment/uncomment
       require('mini.comment').setup()
-      vim.keymap.set({ 'n', 'v' }, '<leader>cc', 'gcc', { remap = true, desc = 'Toggle comment' })
+      vim.keymap.set({ 'n', 'v' }, '<leader>kc', 'gcc', { remap = true, desc = 'Toggle comment' })
 
       -- Colorizer
       require('mini.hipatterns').setup {
