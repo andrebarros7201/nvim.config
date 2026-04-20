@@ -61,7 +61,6 @@ return {
       -- default behavior. For example, here we set the section for
       -- cursor location to LINE:COLUMN
       ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function() return '%2l:%-2v' end
 
       -- Starter screen
       require('mini.starter').setup()
@@ -73,7 +72,12 @@ return {
       require('mini.pairs').setup()
 
       -- Inline diff view
-      require('mini.diff').setup()
+      require('mini.diff').setup {
+        view = {
+          style = 'sign',
+          signs = { add = ' ▎', change = ' ▎', delete = ' ▎' },
+        },
+      }
       vim.keymap.set('n', '<leader>dd', function() require('mini.diff').toggle_overlay() end, { desc = 'Toggle diff overlay' })
 
       -- Comment/uncomment
