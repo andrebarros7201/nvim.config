@@ -76,7 +76,7 @@ return {
       require('mini.diff').setup {
         view = {
           style = 'sign',
-          signs = { add = ' ▎', change = ' ▎', delete = ' ▎' },
+          signs = { add = '▎', change = '▎', delete = '▎' },
         },
       }
       vim.keymap.set('n', '<leader>dd', function() require('mini.diff').toggle_overlay() end, { desc = 'Toggle diff overlay' })
@@ -98,11 +98,6 @@ return {
           hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
         },
       }
-      -- Diagnostics
-      require('mini.pick').setup()
-      require('mini.extra').setup()
-      vim.keymap.set('n', '<leader>da', function() require('mini.extra').pickers.diagnostic() end, { desc = 'Diagnostics' })
-      vim.keymap.set('n', '<leader>d', function() require('mini.extra').pickers.diagnostic { scope = 'current' } end, { desc = 'Current buffer diagnostics' })
     end,
   },
 }

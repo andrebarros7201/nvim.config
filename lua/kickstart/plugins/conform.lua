@@ -21,13 +21,13 @@ return {
         c = { 'clang-format' },
         cpp = { 'clang-format' },
         lua = { 'stylua' },
-        javascript = { 'prettier' },
-        typescript = { 'prettier' },
-        javascriptreact = { 'prettier' },
-        typescriptreact = { 'prettier' },
-        scss = { 'prettier' },
-        css = { 'prettier' },
-        json = { 'prettier' },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        scss = { 'prettierd', 'prettier', stop_after_first = true },
+        css = { 'prettierd', 'prettier', stop_after_first = true },
+        json = { 'prettierd', 'prettier', stop_after_first = true },
       },
 
       -- Custom formatter configurations
@@ -38,16 +38,6 @@ return {
           prepend_args = { '-style=file', '-fallback-style=LLVM' },
         },
 
-        -- Override prettier command resolution
-        prettier = {
-          command = function(_, ctx)
-            -- Prefer project-local prettier (node_modules)
-            local local_bin = ctx.dirname .. '/node_modules/.bin/prettier'
-
-            -- Use local version if it exists, otherwise fallback to global
-            return vim.fn.executable(local_bin) == 1 and local_bin or 'prettier'
-          end,
-        },
       },
     }
 

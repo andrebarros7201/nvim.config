@@ -109,7 +109,7 @@ return {
 
               workspace = {
                 checkThirdParty = false,
-                library = vim.api.nvim_get_runtime_file('', true),
+                library = { vim.env.VIMRUNTIME },
               },
 
               -- Disable formatting (handled by conform)
@@ -155,10 +155,6 @@ return {
         vim.lsp.enable(name)
       end
 
-      -- Autoformat on save
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        callback = function(args) require('conform').format { bufnr = args.buf } end,
-      })
     end,
   },
 }
