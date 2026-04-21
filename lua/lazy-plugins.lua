@@ -22,6 +22,7 @@ require('lazy').setup({
   require 'kickstart.plugins.nvim-tree',
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.undotree',
+  require 'kickstart.plugins.harpoon',
 }, { ---@diagnostic disable-line: missing-fields
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
