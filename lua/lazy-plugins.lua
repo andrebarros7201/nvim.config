@@ -22,7 +22,6 @@ require('lazy').setup({
   require 'kickstart.plugins.nvim-tree',
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.undotree',
-  require 'kickstart.plugins.harpoon',
   require 'kickstart.plugins.trouble',
 }, { ---@diagnostic disable-line: missing-fields
   ui = {
