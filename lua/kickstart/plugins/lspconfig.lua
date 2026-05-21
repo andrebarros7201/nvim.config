@@ -139,6 +139,10 @@ return {
 
         -- HTML
         html = {},
+
+        -- Angular
+        angularls = {
+        },
       }
 
       -- Ensure all servers are installed via Mason
