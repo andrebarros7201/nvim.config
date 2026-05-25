@@ -28,6 +28,7 @@ return {
         scss = { 'prettierd', 'prettier', stop_after_first = true },
         css = { 'prettierd', 'prettier', stop_after_first = true },
         json = { 'prettierd', 'prettier', stop_after_first = true },
+        rust = { 'rustfmt' },
       },
 
       -- Custom formatter configurations
@@ -37,7 +38,6 @@ return {
           -- Otherwise fallback to LLVM style
           prepend_args = { '-style=file', '-fallback-style=LLVM' },
         },
-
       },
     }
 

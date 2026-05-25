@@ -141,7 +141,17 @@ return {
         html = {},
 
         -- Angular
-        angularls = {
+        angularls = {},
+
+        -- Rust
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+              checkOnSave = {
+                command = 'clippy',
+              },
+            },
+          },
         },
       }
 
@@ -158,7 +168,6 @@ return {
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end
-
     end,
   },
 }
