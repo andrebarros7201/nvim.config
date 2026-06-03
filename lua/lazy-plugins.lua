@@ -23,6 +23,7 @@ require('lazy').setup({
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.undotree',
   require 'kickstart.plugins.trouble',
+  -- require 'kickstart.plugins.which-key',
 }, { ---@diagnostic disable-line: missing-fields
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
