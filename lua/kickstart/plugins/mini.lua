@@ -5,8 +5,8 @@ return {
       -- Colorscheme
       require('mini.base16').setup {
         palette = {
-          base00 = '#100F0F',
-          base01 = '#1C1B1A',
+          base00 = '#000000',
+          base01 = '#000000',
           base02 = '#282726',
           base03 = '#4A4845',
           base04 = '#403E3C',
