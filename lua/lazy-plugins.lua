@@ -23,6 +23,7 @@ require('lazy').setup({
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.undotree',
   require 'kickstart.plugins.trouble',
+  require 'kickstart.plugins.auto-tag',
   -- require 'kickstart.plugins.which-key',
 }, { ---@diagnostic disable-line: missing-fields
   ui = {
