@@ -139,6 +139,10 @@ return {
         -- HTML
         html = {},
 
+        -- Emmet shortcuts
+        emmet_language_server = {
+          filetypes = { 'css', 'html', 'javascriptreact', 'less', 'sass', 'scss', 'typescriptreact' },
+        },
         -- Angular
         angularls = {},
 
