@@ -66,7 +66,9 @@ return {
 
       -- Fuzzy matching algorithm
       fuzzy = {
-        implementation = 'lua', -- can switch to 'rust' for more performance
+        -- Use the prebuilt Rust matcher (downloaded for `version = '1.*'`),
+        -- falling back to Lua with a warning if it can't be loaded
+        implementation = 'prefer_rust_with_warning',
       },
 
       -- Show function signature

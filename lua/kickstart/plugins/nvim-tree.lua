@@ -3,7 +3,7 @@ return {
   config = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
-    vim.keymap.set({ 'n', 'v' }, '<leader>e', vim.cmd.NvimTreeToggle)
+    vim.keymap.set({ 'n', 'v' }, '<leader>e', vim.cmd.NvimTreeToggle, { desc = 'Toggle file tree' })
     require('nvim-tree').setup {
       sort = {
         sorter = 'case_sensitive',

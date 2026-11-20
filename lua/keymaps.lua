@@ -31,12 +31,12 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- Move selected lines up or down
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('x', 'J', ":m '>+1<CR>gv=gv", { silent = true, desc = 'Move selection down' })
+vim.keymap.set('x', 'K', ":m '<-2<CR>gv=gv", { silent = true, desc = 'Move selection up' })
 
 -- Split Window Horizontal and Vertical
-vim.keymap.set('n', '<leader>s', ':split<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>s', '<cmd>split<CR>', { desc = 'Split window horizontally' })
+vim.keymap.set('n', '<leader>v', '<cmd>vsplit<CR>', { desc = 'Split window vertically' })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -44,14 +44,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function() vim.hl.on_yank() end,
 })
-
--- Press Enter to accept suggestion
-vim.keymap.set('i', '<CR>', function()
-  if vim.fn.pumvisible() == 1 then
-    return vim.api.nvim_replace_termcodes('<C-y>', true, false, true)
-  else
-    return vim.api.nvim_replace_termcodes('<CR>', true, false, true)
-  end
-end, { expr = true, noremap = true })
 
 -- vim: ts=2 sts=2 sw=2 et

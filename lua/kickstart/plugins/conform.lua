@@ -2,8 +2,6 @@
 ---@type LazySpec
 return {
   'stevearc/conform.nvim',
-  -- Lazy.nvim opts (not used here since we configure manually below)
-  opts = {},
 
   config = function()
     require('conform').setup {

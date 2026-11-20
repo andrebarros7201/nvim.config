@@ -6,7 +6,7 @@ return {
       require('mini.base16').setup {
         palette = {
           base00 = '#000000',
-          base01 = '#000000',
+          base01 = '#1C1B1A',
           base02 = '#282726',
           base03 = '#4A4845',
           base04 = '#403E3C',
@@ -47,16 +47,18 @@ return {
       -- Simple and easy statusline.
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
-      statusline.setup {
-        use_icons = vim.g.have_nerd_font,
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal', { fg = '#FFFCF0', bg = '#66800B', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeInsert', { fg = '#FFFCF0', bg = '#24837B', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeVisual', { fg = '#FFFCF0', bg = '#BC5215', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeReplace', { fg = '#FFFCF0', bg = '#AF3029', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineModeCommand', { fg = '#FFFCF0', bg = '#AD8301', bold = true }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineFilename', { fg = '#CECDC3', bg = '#1C1B1A' }),
-        vim.api.nvim_set_hl(0, 'MiniStatuslineDevinfo', { fg = '#878580', bg = '#1C1B1A' }),
-      }
+      statusline.setup { use_icons = vim.g.have_nerd_font }
+
+      -- Statusline colors (Flexoki accents)
+      local set_hl = vim.api.nvim_set_hl
+      set_hl(0, 'MiniStatuslineModeNormal', { fg = '#FFFCF0', bg = '#66800B', bold = true })
+      set_hl(0, 'MiniStatuslineModeInsert', { fg = '#FFFCF0', bg = '#24837B', bold = true })
+      set_hl(0, 'MiniStatuslineModeVisual', { fg = '#FFFCF0', bg = '#BC5215', bold = true })
+      set_hl(0, 'MiniStatuslineModeReplace', { fg = '#FFFCF0', bg = '#AF3029', bold = true })
+      set_hl(0, 'MiniStatuslineModeCommand', { fg = '#FFFCF0', bg = '#AD8301', bold = true })
+      set_hl(0, 'MiniStatuslineFilename', { fg = '#CECDC3', bg = '#1C1B1A' })
+      set_hl(0, 'MiniStatuslineDevinfo', { fg = '#878580', bg = '#1C1B1A' })
+
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
       -- cursor location to LINE:COLUMN
@@ -72,28 +74,13 @@ return {
       -- Auto pairs
       require('mini.pairs').setup()
 
-      -- Inline diff view
-      require('mini.diff').setup {
-        view = {
-          style = 'sign',
-          signs = { add = '▎', change = '▎', delete = '▎' },
-        },
-      }
-      vim.keymap.set('n', '<leader>dd', function() require('mini.diff').toggle_overlay() end, { desc = 'Toggle diff overlay' })
+      -- Comment/uncomment (uses Neovim's built-in `gc` operator)
+      vim.keymap.set('n', '<leader>kc', 'gcc', { remap = true, desc = 'Toggle comment (line)' })
+      vim.keymap.set('x', '<leader>kc', 'gc', { remap = true, desc = 'Toggle comment (selection)' })
 
-      -- Comment/uncomment
-      require('mini.comment').setup()
-      vim.keymap.set({ 'n', 'v' }, '<leader>kc', 'gcc', { remap = true, desc = 'Toggle comment' })
-
-      -- Colorizer
+      -- Colorizer (TODO/FIXME/etc. keywords are handled by todo-comments.nvim)
       require('mini.hipatterns').setup {
         highlighters = {
-          -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-          fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-          hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-          todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-          note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-
           -- Highlight hex color strings (`#rrggbb`) using that color
           hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
         },

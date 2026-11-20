@@ -22,11 +22,11 @@ return {
     },
 
     config = function()
-      -- Override the floating preview function globally
+      -- Give LSP floating windows a border unless the caller asked for one
       local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
       function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
         opts = opts or {}
-        opts.border = 'single'
+        opts.border = opts.border or 'single'
         return orig_util_open_floating_preview(contents, syntax, opts, ...)
       end
 
@@ -51,8 +51,7 @@ return {
           map('<leader>gr', vim.lsp.buf.references, 'Goto References')
           map('<leader>gi', vim.lsp.buf.implementation, 'Goto Implementation')
 
-          -- Info
-          map('K', vim.lsp.buf.hover, 'Hover Docs')
+          -- Hover docs: `K` is a built-in default since Neovim 0.11
 
           -- Refactoring
           map('<leader>rn', vim.lsp.buf.rename, 'Rename')
@@ -73,6 +72,15 @@ return {
               buffer = event.buf,
               group = group,
               callback = vim.lsp.buf.clear_references,
+            })
+
+            -- Remove the highlight autocmds when the server detaches (e.g. :LspRestart)
+            vim.api.nvim_create_autocmd('LspDetach', {
+              group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
+              callback = function(event2)
+                vim.lsp.buf.clear_references()
+                vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
+              end,
             })
           end
 
@@ -159,8 +167,14 @@ return {
         },
       }
 
-      -- Ensure all servers are installed via Mason
+      -- Ensure all servers and formatters are installed via Mason
+      -- (rustfmt is not listed: it ships with rustup)
       local ensure_installed = vim.tbl_keys(servers)
+      vim.list_extend(ensure_installed, {
+        'stylua',
+        'prettierd',
+        'clang-format',
+      })
 
       require('mason-tool-installer').setup {
         ensure_installed = ensure_installed,
