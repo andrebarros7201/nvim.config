@@ -1,4 +1,4 @@
--- Short aliases for convenience
+-- Editor options and diagnostic display
 local o = vim.o
 local opt = vim.opt
 
@@ -55,6 +55,7 @@ vim.diagnostic.config {
     prefix = '',
     spacing = 4,
   },
+  float = { border = 'single' },
   signs = true,
   underline = true,
   update_in_insert = false,
