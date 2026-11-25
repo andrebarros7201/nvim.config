@@ -1,18 +1,18 @@
-# Check Lua Formatting
-name: Check Lua Formatting
-on: pull_request_target
+name: Check Lua formatting
+
+on:
+  push:
+    branches: [master]
+  pull_request:
 
 jobs:
-  stylua-check:
-    if: github.repository == 'nvim-lua/kickstart.nvim'
-    name: Stylua Check
+  stylua:
+    name: StyLua
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Stylua Check
+      - name: Check formatting
         uses: JohnnyMorganz/stylua-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
