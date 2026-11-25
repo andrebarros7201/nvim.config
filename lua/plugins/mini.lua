@@ -62,6 +62,7 @@ return {
       }, '\n'),
       items = {
         { section = 'Actions', name = 'Find file', action = 'Telescope find_files' },
+        { section = 'Actions', name = 'Restore session', action = function() require('persistence').load() end },
         { section = 'Actions', name = 'Recent files', action = 'Telescope oldfiles' },
         { section = 'Actions', name = 'Grep text', action = 'Telescope live_grep' },
         {

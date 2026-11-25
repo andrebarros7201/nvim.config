@@ -93,6 +93,7 @@ formatter.
 | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | highlights TODO, FIXME and NOTE comments |
 | [undotree](https://github.com/jiaoshijie/undotree) | undo history tree |
 | [guess-indent.nvim](https://github.com/NMAC427/guess-indent.nvim) | detects each file's indentation |
+| [persistence.nvim](https://github.com/folke/persistence.nvim) | saves and restores sessions |
 
 ## Keymaps
 
@@ -172,6 +173,19 @@ The arrow keys print a reminder to use `h` `j` `k` `l`.
 | `<leader>hd` / `<leader>hD` | normal | diff against index / last commit |
 | `<leader>tb` | normal | toggle line blame |
 | `<leader>td` | normal | show deleted lines |
+
+### Sessions
+
+When you quit, the open files and window layout are saved as a session for the current directory
+(one per git branch). Quitting from the start screen without opening a file doesn't overwrite it.
+Restore a session from the start screen's **Restore session** item or with these keys:
+
+| Keys | Action |
+|---|---|
+| `<leader>wr` | restore the session for this directory |
+| `<leader>wl` | restore the last session, from any directory |
+| `<leader>ws` | pick a saved session |
+| `<leader>wd` | don't save a session when quitting this time |
 
 ### Editing (mini.nvim)
 
